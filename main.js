@@ -61,3 +61,43 @@ function createCard(name, imageUrl) {
     // Retornamos la tarjeta ya armada
     return card;
 }
+
+
+// Esta función elimina una tarjeta cuando se le da click a la 'X'
+function removeCard(event) {
+    event.stopPropagation(); // Esto es para que no se active el cambio de imagen por accidente
+    const card = event.target.parentElement; // Subimos hasta la tarjeta
+    card.remove(); // Borramos la tarjeta del HTML
+}
+
+// Esta función cambia la imagen cuando haces click en la tarjeta
+function replaceImage(card) {
+    // Le pedimos al usuario que escriba una nueva URL para la imagen
+    const newImageUrl = prompt('Introduce la nueva URL de la imagen:');
+    if (newImageUrl) {
+        const img = card.querySelector('img'); // Buscamos la imagen actual
+        const newImg = document.createElement('img'); // Creamos una nueva imagen
+        newImg.src = newImageUrl;
+        newImg.alt = img.alt; // Mantenemos el mismo nombre en el alt
+
+        // Reemplazamos la imagen vieja por la nueva en la tarjeta
+        card.replaceChild(newImg, img);
+        // Le damos una pequeña animación para que se vea más cool
+        animateCard(card);
+    }
+}
+
+// Esta función le pone una animación a la tarjeta cuando se cambia la imagen
+function animateCard(card) {
+    const keyframes = [
+        { transform: 'scale(1)', opacity: 1 },
+        { transform: 'scale(1.1)', opacity: 0.8 },
+        { transform: 'scale(1)', opacity: 1 }
+    ];
+    const options = {
+        duration: 500, // Dura medio segundo
+        easing: 'ease-in-out', // Hace la animación suave
+        fill: 'forwards' // Mantiene el último estado de la animación
+    };
+    card.animate(keyframes, options); // Se ejecuta la animación
+}
