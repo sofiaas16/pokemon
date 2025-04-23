@@ -29,3 +29,35 @@ function addPokemon() {
         alert('Por favor, completa ambos campos.');
     }
 }
+
+
+// Esta función se encarga de crear una tarjeta con la info del Pokémon
+function createCard(name, imageUrl) {
+    // Creamos el contenedor de la tarjeta
+    const card = document.createElement('div');
+    card.className = 'card'; // Le damos una clase para que se vea como tarjeta
+    card.onclick = () => replaceImage(card); // Si se le da click, se puede cambiar la imagen
+
+    // Creamos la imagen del Pokémon y le ponemos su URL y texto alternativo (alt)
+    const img = document.createElement('img');
+    img.src = imageUrl;
+    img.alt = name;
+
+    // Creamos el título (el nombre del Pokémon)
+    const title = document.createElement('h3');
+    title.textContent = name;
+
+    // Creamos un botón con una 'X' para eliminar la tarjeta
+    const button = document.createElement('button');
+    button.textContent = 'X';
+    // Cuando se le da click a la 'X', se ejecuta la función que borra la tarjeta
+    button.onclick = (event) => removeCard(event);
+
+    // Añadimos todos los elementos dentro de la tarjeta
+    card.appendChild(img);
+    card.appendChild(title);
+    card.appendChild(button);
+
+    // Retornamos la tarjeta ya armada
+    return card;
+}
