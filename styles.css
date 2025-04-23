@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma;
+}
+
+
+h1 {
+    margin: 20px 0;
+    color: #6a3e9d;
+    /* Tono morado para el título */
+}
+
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #6a3e9d;
+    /* Borde en un tono morado */
+    border-radius: 8px;
+    margin: 10px;
+    padding: 10px;
+    width: 150px;
+    position: relative;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra para dar profundidad */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.card button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #9b59b6;
+    /* Botón en un tono morado */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 5px 8px;
+    font-size: 16px;
+}
+
+.card button:hover {
+    background: #8e44ad;
+    /* Color más oscuro al pasar el ratón */
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #6a3e9d;
+    /* Borde en un tono morado */
+    border-radius: 5px;
+    width: 200px;
+}
+
+button#addPokemon {
+    background-color: #9b59b6;
+    /* Botón en un tono morado */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button#addPokemon:hover {
+    background-color: #8e44ad;
+    /* Color más oscuro al pasar el ratón */
+}
